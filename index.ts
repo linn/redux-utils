@@ -24,44 +24,49 @@ import menu from './src/reducers/menu';
 import news from './src/reducers/news';
 
 // Types
-import ItemType from './src/types/ItemType';
+import ItemType from './src/ItemType';
 
-const reducers = { menu, news };
+type ReducersType = {
+  menu: typeof menu;
+  news: typeof news;
+};
 
-function hello() {
-    console.log('Hello from linn-redux-utils!');
+const reducers: ReducersType = { menu, news };
+
+function hello(): void {
+  console.log('Hello from linn-redux-utils!');
 }
 
 export {
-    // Actions
-    makeActionTypes,
-    makeReportActionTypes,
-    makeProcessActionTypes,
-    FetchApiActions,
-    ProcessActions,
-    ReportActions,
-    UpdateApiActions,
-    StateApiActions,
-    fetchNews,
-    markNotificationSeen,
-    fetchMenu,
+  // Actions
+  makeActionTypes,
+  makeReportActionTypes,
+  makeProcessActionTypes,
+  FetchApiActions,
+  ProcessActions,
+  ReportActions,
+  UpdateApiActions,
+  StateApiActions,
+  fetchNews,
+  markNotificationSeen,
+  fetchMenu,
 
-    // Reducers
-    collectionStoreFactory,
-    collectionWithLinksStoreFactory,
-    processStoreFactory,
-    itemStoreFactory,
-    reportOptionsFactory,
-    reportResultsFactory,
-    reportsResultsFactory,
-    fetchErrorReducerFactory,
-    menu,
-    news,
-    reducers,
+  // Reducers
+  collectionStoreFactory,
+  collectionWithLinksStoreFactory,
+  processStoreFactory,
+  itemStoreFactory,
+  reportOptionsFactory,
+  reportResultsFactory,
+  reportsResultsFactory,
+  fetchErrorReducerFactory,
+  menu,
+  news,
+  reducers,
 
-    // Types
-    ItemType,
+  // Types
+  ItemType,
 
-    // Test
-    hello
+  // Test
+  hello
 };
