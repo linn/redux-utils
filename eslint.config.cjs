@@ -16,7 +16,7 @@ module.exports = [
                 ecmaFeatures: {
                     jsx: true
                 },
-                project: './tsconfig.json', // add this if you have tsconfig.json
+                project: './tsconfig.json',
                 sourceType: 'module'
             },
             globals: {
@@ -26,14 +26,8 @@ module.exports = [
             }
         },
         rules: {
-            // existing rules
             'no-unused-vars': 'error',
-
-            // Add or override TS-specific rules here if you want:
-            // For example:
             '@typescript-eslint/no-unused-vars': ['error'],
-
-            // You can disable base no-unused-vars to avoid conflicts
             'no-unused-vars': 'off'
         }
     },
