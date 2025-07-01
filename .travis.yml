@@ -1,0 +1,30 @@
+language: node_js
+node_js:
+  - "20"
+
+branches:
+  only:
+    - main
+    - prerelease
+
+cache:
+  npm: true
+  directories:
+    - node_modules
+
+install:
+  - npm install
+
+script:
+  - npm run build
+
+before_deploy:
+  - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+
+deploy:
+  provider: script
+  script: |
+    npm publish
+  skip_cleanup: true
+  on:
+    all_branches: true
