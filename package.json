@@ -5,7 +5,9 @@
   "private": false,
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "rollup -c",
     "deploy": "npm run build && npm publish",
@@ -24,9 +26,12 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@babel/core": "^7.27.7",
+    "@babel/preset-env": "^7.27.2",
     "@rollup/plugin-commonjs": "^28.0.6",
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-typescript": "^12.1.4",
+    "babel-jest": "^30.0.2",
     "deep-freeze": "0.0.1",
     "eslint": "^9.26.0",
     "eslint-config-prettier": "^10.1.5",
