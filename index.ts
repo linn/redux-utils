@@ -24,7 +24,7 @@ import menu from './src/reducers/menu';
 import news from './src/reducers/news';
 
 // Types
-import ItemType from './src/types/ItemType';
+import ItemType from './src/ItemType';
 
 type ReducersType = {
   menu: typeof menu;
