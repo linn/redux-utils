@@ -17,14 +17,14 @@ describe('collection store reducer factory', () => {
     };
     const defaultState = {
         loading: false,
-        items: []
+        items: [],
+        searchLoading: false,
+        searchItems: []
     };
     const generatedReducer = collectionStoreFactory('ENTITIES', actionTypes, defaultState);
 
     test('when requesting entities', () => {
-        const state = {
-            loading: false
-        };
+        const state = defaultState;
 
         const action = {
             type: actionTypes.REQUEST_ENTITIES,
@@ -32,7 +32,10 @@ describe('collection store reducer factory', () => {
         };
 
         const expected = {
-            loading: true
+            items: [],
+            loading: true,
+            searchItems: [],
+            searchLoading: false
         };
 
         deepFreeze(state);
@@ -43,7 +46,7 @@ describe('collection store reducer factory', () => {
     test('when requesting application state', () => {
         const state = {
             loading: false,
-            applicationState: { links: [] }
+            applicationState: { links: [], loading: false }
         };
 
         const action = {
@@ -53,7 +56,7 @@ describe('collection store reducer factory', () => {
 
         const expected = {
             loading: false,
-            applicationState: { loading: true }
+            applicationState: { loading: true, links: [] }
         };
 
         deepFreeze(state);
@@ -74,7 +77,7 @@ describe('collection store reducer factory', () => {
 
         const expected = {
             loading: false,
-            items: [{ name: '1', href: '/1', links: [{ rel: 'self', href: '/1' }] }]
+            items: [{ name: '1', links: [{ rel: 'self', href: '/1' }] }]
         };
 
         deepFreeze(state);
