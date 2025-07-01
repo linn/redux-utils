@@ -29,7 +29,7 @@ import ItemType from './src/types/ItemType';
 const reducers = { menu, news };
 
 function hello() {
-    return 'Hello from linn-redux-utils!';
+    console.log('Hello from linn-redux-utils!');
 }
 
 export {
@@ -60,8 +60,8 @@ export {
     reducers,
 
     // Types
-
     ItemType,
+
     // Test
     hello
 };
