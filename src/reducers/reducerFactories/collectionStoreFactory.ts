@@ -1,18 +1,15 @@
 ﻿import utilities from '../../utilities/index';
 
-// Type for hypermedia links
 interface Link {
     rel: string;
     href: string;
 }
 
-// Application state slice
 interface ApplicationState {
     links: Link[];
     loading: boolean;
 }
 
-// Complete reducer state
 interface State {
     loading?: boolean;
     searchLoading?: boolean;
@@ -22,7 +19,6 @@ interface State {
     snackbarVisible?: boolean;
 }
 
-// Action type map
 type ActionTypes = Record<string, string>;
 
 type HypermediaLink = {
