@@ -1,0 +1,36 @@
+{
+  "name": "@linn-it/redux-utils",
+  "version": "1.0.0",
+  "private": false,
+  "dependencies": {
+  },
+  "scripts": {
+    "build": "npm install && npm install --only=dev && jest --runInBand src/ && rollup --config",
+    "deploy": "npm run build && npm publish",
+    "test": "jest src/",
+    "test:watch": "jest --watch"
+  },
+  "peerDependencies": {
+    "react-redux": "^9.2.0",
+    "redux": "^5.0.1",
+    "redux-api-middleware": "^3.2.1"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "deep-freeze": "0.0.1",
+    "eslint": "^9.26.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.4.0",
+    "eslint-plugin-unused-imports": "^4.1.4",
+    "globals": "^16.1.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "redux": "^5.0.1",
+    "redux-api-middleware": "^3.2.1"
+  }
+}
