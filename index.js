@@ -23,6 +23,23 @@ import fetchErrorReducerFactory from './src/reducers/reducerFactories/fetchError
 import menu from './src/reducers/menu';
 import news from './src/reducers/news';
 
+// Selectors
+import collectionSelectorHelpers from './src/selectors/collectionSelectorHelpers';
+import paginationSelectorHelpers from './src/selectors/paginationSelectorHelpers';
+import itemSelectorHelpers from './src/selectors/itemSelectorHelpers';
+import reportSelectorHelpers from './src/selectors/reportSelectorHelpers';
+import processSelectorHelpers from './src/selectors/processSelectorHelpers';
+import menuSelectors from './src/selectors/menuSelectors';
+import newsSelectors from './src/selectors/newsSelectors';
+import getUsername from './src/selectors/legacyUserSelectors';
+import userSelectors from './src/selectors/userSelectors';
+import {
+    getItemError,
+    getRequestErrors,
+    getItemErrors,
+    getItemErrorDetailMessage
+} from './src/selectors/errorSelectors';
+
 // Types
 import ItemType from './src/types/ItemType';
 
@@ -58,6 +75,21 @@ export {
     menu,
     news,
     reducers,
+
+    // Selectors
+    collectionSelectorHelpers,
+    paginationSelectorHelpers,
+    itemSelectorHelpers,
+    reportSelectorHelpers,
+    processSelectorHelpers,
+    menuSelectors,
+    newsSelectors,
+    getUsername,
+    userSelectors,
+    getItemError,
+    getRequestErrors,
+    getItemErrors,
+    getItemErrorDetailMessage,
 
     // Types
     ItemType,
