@@ -9,11 +9,11 @@ export default function FetchApiActions(
     appRoot,
     accept
 ) {
-    this.fetch = () => ({
+    this.fetch = (requiresAuth = true) => ({
         [RSAA]: {
             endpoint: `${appRoot}${uri}`,
             method: 'GET',
-            options: { requiresAuth: true },
+            options: { requiresAuth },
             headers: {
                 Accept: accept ?? 'application/json'
             },
@@ -25,11 +25,11 @@ export default function FetchApiActions(
         }
     });
 
-    this.fetchById = id => ({
+    this.fetchById = (id, requiresAuth = true) => ({
         [RSAA]: {
             endpoint: `${appRoot}${uri}/${id}`,
             method: 'GET',
-            options: { requiresAuth: true },
+            options: { requiresAuth },
             headers: {
                 Accept: accept ?? 'application/json'
             },
@@ -41,11 +41,11 @@ export default function FetchApiActions(
         }
     });
 
-    this.fetchByPath = (id, path) => ({
+    this.fetchByPath = (id, path, requiresAuth = true) => ({
         [RSAA]: {
             endpoint: `${appRoot}${uri}/${id}/${path}`,
             method: 'GET',
-            options: { requiresAuth: true },
+            options: { requiresAuth },
             headers: {
                 Accept: accept ?? 'application/json'
             },
@@ -57,11 +57,11 @@ export default function FetchApiActions(
         }
     });
 
-    this.fetchPage = (pageNumber, rowsPerPage) => ({
+    this.fetchPage = (pageNumber, rowsPerPage, requiresAuth = true) => ({
         [RSAA]: {
             endpoint: `${appRoot}${uri}/${pageNumber}/${rowsPerPage}`,
             method: 'GET',
-            options: { requires: true },
+            options: { requiresAuth },
             headers: {
                 Accept: accept ?? 'application/json'
             },
@@ -73,11 +73,11 @@ export default function FetchApiActions(
         }
     });
 
-    this.fetchSortedPage = (pageNumber, rowsPerPage, sortBy, asc) => ({
+    this.fetchSortedPage = (pageNumber, rowsPerPage, sortBy, asc, requiresAuth = true) => ({
         [RSAA]: {
             endpoint: `${appRoot}${uri}/${pageNumber}/${rowsPerPage}/${sortBy}/${asc}`,
             method: 'GET',
-            options: { requires: true },
+            options: { requiresAuth },
             headers: {
                 Accept: accept ?? 'application/json'
             },
@@ -89,11 +89,11 @@ export default function FetchApiActions(
         }
     });
 
-    this.search = searchTerm => ({
+    this.search = (searchTerm, requiresAuth = true) => ({
         [RSAA]: {
             endpoint: `${appRoot}${uri}?searchTerm=${searchTerm}`,
             method: 'GET',
-            options: { requiresAuth: true },
+            options: { requiresAuth },
             headers: {
                 Accept: accept ?? 'application/json'
             },
@@ -105,11 +105,11 @@ export default function FetchApiActions(
         }
     });
 
-    this.searchWithOptions = (searchTerm, options) => ({
+    this.searchWithOptions = (searchTerm, options, requiresAuth = true) => ({
         [RSAA]: {
             endpoint: `${appRoot}${uri}?searchTerm=${searchTerm}${options}`,
             method: 'GET',
-            options: { requiresAuth: true },
+            options: { requiresAuth },
             headers: {
                 Accept: accept ?? 'application/json'
             },
@@ -131,11 +131,11 @@ export default function FetchApiActions(
         payload: {}
     });
 
-    this.fetchState = () => ({
+    this.fetchState = (requiresAuth = true) => ({
         [RSAA]: {
             endpoint: `${appRoot}${uri}/application-state`,
             method: 'GET',
-            options: { requiresAuth: true },
+            options: { requiresAuth },
             headers: {
                 Accept: 'application/vnd.linn.application-state+json;version=1'
             },

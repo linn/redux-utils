@@ -9,7 +9,7 @@ export default function ProcessActions(
     appRoot,
     contentType = 'application/json'
 ) {
-    this.requestProcessStart = (body, options = null) => {
+    this.requestProcessStart = (body, options = null, requiresAuth = true) => {
         const makeBody = () => {
             if (!body) return '';
             if (contentType === 'application/json') {
@@ -31,7 +31,7 @@ export default function ProcessActions(
             [RSAA]: {
                 endpoint: makeEndpoint(),
                 method: 'POST',
-                options: { requiresAuth: true },
+                options: { requiresAuth },
                 headers: {
                     Accept: 'application/json',
                     'Content-Type': contentType

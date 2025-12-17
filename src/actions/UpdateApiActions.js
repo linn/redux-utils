@@ -7,13 +7,14 @@ export default function UpdateApiActions(
     uri,
     actionTypes,
     appRoot,
-    accept
+    accept,
+    requiresAuth = true
 ) {
     this.fetch = id => ({
         [RSAA]: {
             endpoint: `${appRoot}${uri}/${id}`,
             method: 'GET',
-            options: { requiresAuth: true },
+            options: { requiresAuth },
             headers: {
                 Accept: accept ?? 'application/json'
             },
@@ -25,11 +26,11 @@ export default function UpdateApiActions(
         }
     });
 
-    this.fetchByHref = href => ({
+    this.fetchByHref = (href, requiresAuth = true) => ({
         [RSAA]: {
             endpoint: `${appRoot}${href}`,
             method: 'GET',
-            options: { requiresAuth: true },
+            options: { requiresAuth },
             headers: {
                 Accept: accept ?? 'application/json'
             },
@@ -41,11 +42,11 @@ export default function UpdateApiActions(
         }
     });
 
-    this.fetchByPath = (id, path) => ({
+    this.fetchByPath = (id, path, requiresAuth = true) => ({
         [RSAA]: {
             endpoint: `${appRoot}${uri}/${id}/${path}`,
             method: 'GET',
-            options: { requiresAuth: true },
+            options: { requiresAuth },
             headers: {
                 Accept: accept ?? 'application/json'
             },
@@ -57,11 +58,11 @@ export default function UpdateApiActions(
         }
     });
 
-    this.fetchByQueryString = (queryString, id) => ({
+    this.fetchByQueryString = (queryString, id, requiresAuth = true) => ({
         [RSAA]: {
             endpoint: `${appRoot}${uri}?${queryString}=${id}`,
             method: 'GET',
-            options: { requiresAuth: true },
+            options: { requiresAuth },
             headers: {
                 Accept: accept ?? 'application/json'
             },
@@ -73,11 +74,11 @@ export default function UpdateApiActions(
         }
     });
 
-    this.add = item => ({
+    this.add = (item, requiresAuth = true) => ({
         [RSAA]: {
             endpoint: `${appRoot}${uri}`,
             method: 'POST',
-            options: { requiresAuth: true },
+            options: { requiresAuth },
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json'
@@ -91,11 +92,11 @@ export default function UpdateApiActions(
         }
     });
 
-    this.update = (id, item) => ({
+    this.update = (id, item, requiresAuth = true) => ({
         [RSAA]: {
             endpoint: id !== null ? `${appRoot}${uri}/${id}` : `${appRoot}${uri}`,
             method: 'PUT',
-            options: { requiresAuth: true },
+            options: { requiresAuth },
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json'
@@ -109,11 +110,11 @@ export default function UpdateApiActions(
         }
     });
 
-    this.putByHref = (href, item) => ({
+    this.putByHref = (href, item, requiresAuth = true) => ({
         [RSAA]: {
             endpoint: href,
             method: 'PUT',
-            options: { requiresAuth: true },
+            options: { requiresAuth },
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json'
@@ -127,11 +128,11 @@ export default function UpdateApiActions(
         }
     });
 
-    this.patch = (id, item) => ({
+    this.patch = (id, item, requiresAuth = true) => ({
         [RSAA]: {
             endpoint: `${appRoot}${uri}/${id}`,
             method: 'PATCH',
-            options: { requiresAuth: true },
+            options: { requiresAuth },
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json'
@@ -145,11 +146,11 @@ export default function UpdateApiActions(
         }
     });
 
-    this.postByHref = (href, body = '') => ({
+    this.postByHref = (href, body = '', requiresAuth = true) => ({
         [RSAA]: {
             endpoint: `${appRoot}${href}`,
             method: 'POST',
-            options: { requiresAuth: true },
+            options: { requiresAuth },
             headers: {
                 Accept: accept ?? 'application/json',
                 'Content-Type': 'application/json'
@@ -163,11 +164,11 @@ export default function UpdateApiActions(
         }
     });
 
-    this.delete = (id, item) => ({
+    this.delete = (id, item, requiresAuth = true) => ({
         [RSAA]: {
             endpoint: id !== null ? `${appRoot}${uri}/${id}` : `${appRoot}${uri}`,
             method: 'DELETE',
-            options: { requiresAuth: true },
+            options: { requiresAuth },
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json'
@@ -219,11 +220,11 @@ export default function UpdateApiActions(
         payload: {}
     });
 
-    this.fetchState = () => ({
+    this.fetchState = (requiresAuth = true) => ({
         [RSAA]: {
             endpoint: `${appRoot}${uri}/application-state`,
             method: 'GET',
-            options: { requiresAuth: true },
+            options: { requiresAuth },
             headers: {
                 Accept: 'application/vnd.linn.application-state+json;version=1'
             },
