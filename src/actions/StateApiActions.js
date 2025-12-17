@@ -9,11 +9,11 @@ export default function StateApiActions(
     appRoot,
     uriPath
 ) {
-    this.fetchState = () => ({
+    this.fetchState = (requiresAuth = true) => ({
         [RSAA]: {
             endpoint: `${appRoot}${uri}/${uriPath}`,
             method: 'GET',
-            options: { requiresAuth: true },
+            options: { requiresAuth },
             headers: {
                 Accept: 'application/vnd.linn.application-state+json;version=1'
             },
