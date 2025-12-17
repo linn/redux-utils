@@ -1,5 +1,5 @@
 # Changelog
-## [2.1.0] - 2025-12-17
+## [2.1.0-1] - 2025-12-17
 Make the requiresAuth field on Redux Standard API-calling Actions (RSAAs) options dictionary specifiable, whereas previously it was hardcoded to true for all RSAAs.
 The new parameter is passed to the actionCreator functions, and is both optional and defaults to true so as not to cause any breaking change.
 
