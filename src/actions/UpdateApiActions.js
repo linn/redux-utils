@@ -7,10 +7,9 @@ export default function UpdateApiActions(
     uri,
     actionTypes,
     appRoot,
-    accept,
-    requiresAuth = true
+    accept
 ) {
-    this.fetch = id => ({
+    this.fetch = (id, requiresAuth = true) => ({
         [RSAA]: {
             endpoint: `${appRoot}${uri}/${id}`,
             method: 'GET',
