@@ -1,4 +1,7 @@
 # Changelog
+## [2.2.1] - 2026-04-22
+- Fix npm publish for scoped package - add --access public flag
+
 ## [2.2.0] - 2026-04-22
 - Add GitHub Actions CI/CD (ci-cd.yml). npm publishing now uses OIDC Trusted Publisher instead of a stored secret, with npm provenance attestation. Publish step skips gracefully (with a commit comment notification) if the package version has not been incremented.
 
