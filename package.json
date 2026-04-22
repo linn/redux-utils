@@ -1,5 +1,9 @@
 {
   "name": "@linn-it/redux-utils",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/linn/redux-utils"
+  },
   "description": "A collection of Redux utilities for Linn IT dev projects",
   "version": "2.1.2",
   "private": false,
